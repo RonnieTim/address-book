@@ -1,0 +1,16 @@
+# ignore .env files and virtual environments
+venv
+venv/*
+.env
+
+# ignore python compiled files
+*pyc
+
+# Ignore database file
+db.sqlite3
+
+# ignore pycharm / intellij files
+.idea/*
+
+# ignore static files
+addressbook/static/*
