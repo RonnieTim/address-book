@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from rest_framework_swagger.views import get_swagger_view
+
 from rest_framework import routers
 
 from .views import ContactsViewSet
+
+
+schema_view = get_swagger_view(title='Contacts API')
 
 router = routers.SimpleRouter()
 
@@ -26,6 +32,8 @@ router.register(r'contacts', ContactsViewSet, basename="contacts")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', schema_view),
 ]
 
 urlpatterns += router.urls
+urlpatterns += staticfiles_urlpatterns()
